@@ -7,3 +7,6 @@ the 5-listfilesdigitonly file prints the files in the current directory in long 
 the my_first_directory  file creates a directory in /tmp/.
 the 8-firstdelete file delete's the betty file in /tmp/my_first_directory.
 the 9-firstdirdeletion                                                                                                       file delete's the my_first_directory in /tmp.
+The 10-back file changes the directory to the last directory
+the 11-lists lists the file in the current directory,
+parent directory and /boot

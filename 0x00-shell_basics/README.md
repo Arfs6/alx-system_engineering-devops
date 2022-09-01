@@ -11,3 +11,4 @@ The 10-back file changes the directory to the last directory
 the 11-lists lists the file in the current directory,
 parent directory and /boot
 The file 12-file_type                                                                                                             check the type of /tmp/iamafile
+the 13-symbolic_link                                                                                                         create a link of /bin/ls.

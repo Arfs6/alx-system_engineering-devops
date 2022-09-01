@@ -5,3 +5,4 @@ the 2-bring_me_home changes the directory to home.
 the 4-listmorefiles file list all the files in the current directory, including hidden files.
 the 5-listfilesdigitonly file prints the files in the current directory in long format, with all hidden files and IDs displays nemerically.
 the my_first_directory  file creates a directory in /tmp/.
+the 8-firstdelete file delete's the betty file in /tmp/my_first_directory.

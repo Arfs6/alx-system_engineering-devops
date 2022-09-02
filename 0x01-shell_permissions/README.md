@@ -8,3 +8,4 @@ the script 7-everybody adds exe perm to everybody.
 The 8-James_Bond script sets the user and group perm to none and set other perm to all.
 the script 9-John_Doe sets the perms to rwxr-x-wx.
 the script 10-mirror_permissions sets the perm of olleh equals to hello.
+the 11-directories_permissions script app x perm to all dir in the current dir.

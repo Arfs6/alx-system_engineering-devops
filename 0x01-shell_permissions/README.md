@@ -9,3 +9,4 @@ The 8-James_Bond script sets the user and group perm to none and set other perm 
 the script 9-John_Doe sets the perms to rwxr-x-wx.
 the script 10-mirror_permissions sets the perm of olleh equals to hello.
 the 11-directories_permissions script app x perm to all dir in the current dir.
+the script 12-directory_permissions creates a dir my_dir and sets it's perm to 751

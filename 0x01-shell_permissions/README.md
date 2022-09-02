@@ -6,3 +6,4 @@ the 5-execute file adds execute permission to hello file.
 The script 6-multiple_permissions adds exe perm to owner and group and read perm to ortherother.
 the script 7-everybody adds exe perm to everybody.
 The 8-James_Bond script sets the user and group perm to none and set other perm to all.
+the script 9-John_Doe sets the perms to rwxr-x-wx.

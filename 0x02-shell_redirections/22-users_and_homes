@@ -1,2 +1,2 @@
 #!/bin/bash
-grep /etc/passwd '[[:alnum:]]*:/[[:alnum:]]*
+grep '[*[:alnum:]]:/[[:alnum:]]*' /etc/passwd

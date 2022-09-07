@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -oP '^[^:]+|.*:\K[^:]+(?=:[^:]+)' /etc/passwd | perl -pe 's/\n/ : / if $.%2'
+grep /etc/passwd '[[:alnum:]]*:/[[:alnum:]]*

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# The script configures a new Ubuntu machine to install Nginx.
+
+# Update system repo
+apt update
+
+# Install Nginx
+apt install nginx -y
+
+# Open port 80 for listening
+ufw allow 'Nginx HTTP'
+
+# HTML constains string
+echo 'Hello World!' > /var/www/html/index.html
+
+# Configure server
+replacement='server {\nrewrite \^\/redirect_me\/ https:\/\/www.youtube.com permanent;'
+sed -i 's/^server\s*{/'"$replacement"'/g' /etc/nginx/sites-available/default
+rm -f /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/site-available/default /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart

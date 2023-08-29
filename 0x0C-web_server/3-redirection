@@ -17,7 +17,7 @@ echo 'Hello World!' > /var/www/html/index.html
 replacement='server {\nrewrite \^\/redirect_me\/ https:\/\/www.youtube.com permanent;'
 sed -i 's/^server\s*{/'"$replacement"'/g' /etc/nginx/sites-available/default
 rm -f /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/site-available/default /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Nginx
 service nginx restart

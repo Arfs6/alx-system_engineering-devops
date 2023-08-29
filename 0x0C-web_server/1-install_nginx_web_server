@@ -2,9 +2,9 @@
 # install and configure nginx
 apt update
 apt install nginx -y
+ufw allow 'Nginx HTTP'
 # sed -i 's/listen.*;/listen localhost:80;/g' /etc/nginx/nginx.conf
-echo '\
-server {
+echo 'server {
     listen 80;
     server_name _;
     root /var/www/html;

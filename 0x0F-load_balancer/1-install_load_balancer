@@ -2,9 +2,11 @@
 # Install and setup haproxy
 sudo apt update -y
 sudo apt install software-properties-common -y
-# sudo add-apt-repository ppa:vbernat/haproxy-2.5 -y
-# sudo apt update -y
+sudo add-apt-repository ppa:vbernat/haproxy-2.5 -y
+sudo apt update -y
 sudo apt install -y haproxy
+
+# configuration
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 echo '
 frontend http_frontend
@@ -18,4 +20,10 @@ backend web_servers
 	server 141913-web-01 100.26.157.153:80 check
 	server 141913-web-02 54.146.71.113:80 check
 ' >> /etc/haproxy/haproxy.cfg
+
+# enable init script for haproxy
+sed -i '/^ENABLED/d' /etc/default/haproxy
+echo 'ENABLED=1' >> /etc/default/haproxy
+
+# start haproxy
 sudo service haproxy restart

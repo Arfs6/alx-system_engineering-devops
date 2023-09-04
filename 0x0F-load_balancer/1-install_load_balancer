@@ -13,7 +13,6 @@ echo 'frontend http_frontend
 
 backend web_servers
 	mode http
-	balance roundrobin
 	option httpchk
 	server 141913-web-01 100.26.157.153:80 check
 	server 141913-web-02 54.146.71.113:80 check

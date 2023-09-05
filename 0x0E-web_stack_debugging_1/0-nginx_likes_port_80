@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Fix server not working
+config_file='/etc/nginx/sites-enabled/default'
+sed -i '/\tlisten \[::\]/d' $config_file
+sed -i 's/\tlisten 8080.*/\tlisten 80 default_server;\n\tlisten [::]:80 default_server;/' $config_file
+sed -i 's/\tserver_name localhost;/\tserver_name _;/' $config_file
+sudo service nginx restart

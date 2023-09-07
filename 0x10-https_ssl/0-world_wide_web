@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Given a domain and an optional sub-domain, print which type of domain it is.
+
+getIpAndRecord () {
+	line=$(dig "$1.$2" | grep -A1 'ANSWER SECTION:' | tail -1)
+	# echo "line is $line"
+	echo "$line" | awk -F '\t' '{print $(NF - 1), "record and points to",  $NF}'
+}
+
+if [ $# -eq 2 ]; then
+	recordAndIp=$(getIpAndRecord "$2" "$1")
+	echo "The subdomain www is a $recordAndIp"
+else
+	subDomains=('www' 'lb-01' 'web-01' 'web-02')
+	for subDomain in "${subDomains[@]}"; do
+		recordAndIp=$(getIpAndRecord "$subDomain" "$1")
+		echo "The subdomain $subDomain is a $recordAndIp"
+	done
+fi

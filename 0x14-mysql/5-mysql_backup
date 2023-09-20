@@ -1,0 +1,21 @@
+#!/bin/bash
+# Create a backup of all databases in mysql.
+# MySQL database credentials
+MYSQL_USER="root"
+MYSQL_PASSWORD="$1"
+
+# Get the current date in the desired format
+CURRENT_DATE=$(date +'%d-%m-%Y')
+
+# Create a directory with the current date as its name
+BACKUP_DIR="$CURRENT_DATE"
+mkdir -p "$BACKUP_DIR"
+
+# Dump all MySQL databases into a file named backup.sql
+mysqldump -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" --all-databases > "$BACKUP_DIR/backup.sql"
+
+ARCHIVE_NAME="$CURRENT_DATE.tar.gz"
+tar -czvf "$ARCHIVE_NAME" "$BACKUP_DIR"
+
+# Remove the temporary directory
+rm -r "$BACKUP_DIR"

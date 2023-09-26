@@ -11,8 +11,8 @@ import sys
 def run():
     """Begin code execution"""
     url = 'https://jsonplaceholder.typicode.com/'
-    name = requests.get(url + f"users/{sys.argv[1]}").json().get('name')
-    if not name:
+    username = requests.get(url + f"users/{sys.argv[1]}").json().get('username')
+    if not username:
         return  # user doesn't exists
     response = requests.get(url + f"users/{sys.argv[1]}/todos")
     tasks = response.json()
@@ -20,7 +20,7 @@ def run():
         {
             'task': task.get('title'),
             'completed': task.get('completed'),
-            'username': name
+            'username': username
         }
         for task in tasks
     ]

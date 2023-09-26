@@ -15,7 +15,7 @@ def run():
         return  # user doesn't exists
     response = requests.get(url + f"users/{sys.argv[1]}/todos")
     json = response.json()
-    doneTasks = [task for task in json if task.get('completed') == True]
+    doneTasks = [task for task in json if task.get('completed') is True]
     print(f"Employee {name} is done with tasks({len(doneTasks)}/{len(json)}):")
     for task in doneTasks:
         print(f"\t{task.get('title')}")

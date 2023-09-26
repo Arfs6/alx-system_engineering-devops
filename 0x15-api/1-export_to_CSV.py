@@ -17,7 +17,7 @@ def run():
     response = requests.get(url + f"users/{sys.argv[1]}/todos")
     json = response.json()
     rows = [[sys.argv[1], name, task.get('completed'), task.get('title')]
-        for task in json]
+            for task in json]
     with open(sys.argv[1] + '.csv', 'w') as csvFile:
         csvWriter = csv.writer(csvFile, quoting=csv.QUOTE_ALL)
         csvWriter.writerows(rows)

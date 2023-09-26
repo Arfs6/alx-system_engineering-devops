@@ -16,7 +16,14 @@ def run():
         return  # user doesn't exists
     response = requests.get(url + f"users/{sys.argv[1]}/todos")
     tasks = response.json()
-    formattedTasks = [{'task': task.get('title'), 'completed': task.get('completed'), 'username': name} for task in tasks]
+    formattedTasks = [
+        {
+            'task': task.get('title'),
+            'completed': task.get('completed'),
+            'username': name
+        }
+        for task in tasks
+    ]
     userTasks = {sys.argv[1]: formattedTasks}
     with open(sys.argv[1] + '.json', 'w') as jsonFile:
         json.dump(userTasks, jsonFile)

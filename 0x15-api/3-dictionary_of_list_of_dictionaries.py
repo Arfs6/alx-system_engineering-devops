@@ -29,7 +29,7 @@ def run():
     users = requests.get(url + 'users').json()
     usersTasks = {}
     for user in users:
-        usersTasks[user.get('id')] = getTasks(user.get('id'), user.get('name'))
+        usersTasks[user.get('id')] = getTasks(user.get('id'), user.get('username'))
     with open('todo_all_employees.json', 'w') as jsonFile:
         json.dump(usersTasks, jsonFile)
 

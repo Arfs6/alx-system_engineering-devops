@@ -5,6 +5,6 @@ exec { 'sed-edit-config':
   path    => "/usr/local/bin/:/bin"
 }
 exec { 'sudo-restart-nginx':
-  command => "sudo service nginx restart",
+  command => "/etc/init.d/nginx restart",
   path    => "/usr/bin/:/bin/:/usr/local/bin/"
 }
